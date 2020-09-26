@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if error_message %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <article class="message is-danger">
+      <div class="message-header">
+        <p>Error</p>
+      </div>
+      <div class="message-body">
+        {{ error_message }}
+      </div>
+    </article>
+  </div>
+</div>
+{% endif %}
+
+{% if info_message %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>Info</p>
+      </div>
+      <div class="message-body">
+        {{ info_message }}
+      </div>
+    </article>
+  </div>
+</div>
+{% endif %}
+
+<div class="columns">
+  <div class="column is-4 is-offset-1">
+    <form action="/register" method="POST">
+      <h1 class="title">Register</h1>
+      <div class="field">
+        <label class="label">ID</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" name="uid">
+          <span class="icon is-small is-left">
+            <i class="fas fa-id-card"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control has-icons-left">
+          <input class="input" type="password" name="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" name="name">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <br>
+      <input type="submit" class="button is-dark is-fullwidth" value="Register"></input>
+    </form>
+  </div>
+
+  <div class="column is-4 is-offset-2">
+    <form action="/login" method="POST">
+      <p class="title">Login</p>
+      <div class="field">
+        <label class="label">ID</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" name="uid">
+          <span class="icon is-small is-left">
+            <i class="fas fa-id-card"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control has-icons-left">
+          <input class="input" type="password" name="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+          </span>
+        </div>
+      </div>
+      <br>
+      <input type="submit" class="button is-dark is-fullwidth" value="Login"></input>
+    </form>
+  </div>
+</div>
+{% endblock %}

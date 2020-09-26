@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>ctf4b tweet store</h1>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<form class="col s12" name="form1" action="#" method="GET">
+					<div class="input-field col s8">
+						<input id="input_search" type="text" name="search" />
+						<label for="input_search">search word</label>
+					</div>
+					<div class="input-field col s4">
+						<input id="input_limit" type="number" name="limit" min="0"/>
+						<label for="input_limit">search limit</label>
+					</div>
+					<div class="right">
+						<input type="submit" class="btn right" value="Search"/>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="right">
+				<p>{{ len .}} of 200 tweets are displayed. enjoy!</p>
+				<input id="nTweets" type="hidden" value="{{len .}}" />
+			</div>
+		</div>
+
+		<div class="container">
+			<div>
+				<table>
+					<tr class="responsive-table">
+						<th>link</th>
+						<th>text</th>
+						<th>Tweeted_at</th>
+					</tr>
+					{{range $idx, $item := .}}
+					<tr>
+						<td><a href="{{$item.Url}}">Watch@Twitter</a></td>
+						<td>{{$item.Text}}</td>
+						<td>{{$item.Tweeted_at}}</td>
+					</tr>					
+					{{end}}
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

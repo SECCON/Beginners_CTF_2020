@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  db:
+    build: ./db
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=password
+      - POSTGRES_CTF_PASSWORD=password
+      - POSTGRES_CTF_USER=ctf4b{is_postgres_your_friend?}
+      - POSTGRES_DB=ctf
+    networks:
+      - ctf
+
+
+  webserver:
+    build: ./webapp
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - ./log/:/log
+    ports:
+      - 8080:8080
+    environment:
+      - FLAG=ctf4b{is_postgres_your_friend?}
+    networks:
+      - ctf
+
+networks:
+  ctf:
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SPY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="hero is-danger">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Challenge
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    {% if message %}
+                        <p id="message">{{ message }}</p>
+                        <hr>
+                    {% endif %}
+                    <h1 class="title">Choose the right combination.</h1>
+                    <form action="/challenge" method="POST">
+                        {% for employee in employees %}
+                        <p>
+                            <label class="checkbox">
+                                <input type="checkbox" name="answer" value="{{ employee }}">
+                                {{ employee }}
+                            </label>
+                        </p>
+                        {% endfor %} 
+                        <br>
+                        <input class="button is-danger is-fullwidth" type="submit" value="Answer">
+                    </form>
+                    <br>
+                    <hr>
+                    <br>
+                    <a href="/" class="button is-info is-fullwidth">Back to login page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p style="font-size: 12px; color: #aaaaaa;">It took {{ sec }} sec to load this page.</p>
+            <p>Spy / SECCON beginners CTF 2020</p>
+        </div>
+    </footer>
+</body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.7/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>C4B</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h2>C4B</h2>
+      <div v-if="!provider" class="alert alert-danger">
+        Install Web3 Provider (MetaMask)
+      </div>
+      <div v-if="provider">
+        <div>
+          <h3>Rule</h3>
+          <ol>
+            <li>Deploy your instance</li>
+            <li>Solve challenge (<code>success =&gt; true</code>)</li>
+            <li>Submit solved instance</li>
+          </ol>
+
+          <div class="my-1">
+            <button class="btn btn-primary" v-on:click="deploy" :disabled="network!=='ropsten'">Deploy</button>
+            <button class="btn btn-success" v-on:click="submit" :disabled="challenge_address==''">Submit</button>
+            <div v-if="challenge_address !== ''">
+              Your contract is at: <span>{{ challenge_address }}</span>
+            </div>
+          </div>
+
+          <div class="my-1">
+            <div v-if="error !== ''" class="alert alert-danger">
+              {{ error }}
+            </div>
+            <div v-if="check" class="alert alert-warning">
+              OK, submit your contract and get the flag!
+            </div>
+            <div v-if="flag !== ''" class="alert alert-success">
+              Congratulations!<br>
+              The flag is {{ flag }}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Source</h3>
+          <pre><code>{{ source }}</code></pre>
+        </div>
+        <div>
+          <h3>Hint</h3>
+          <ul>
+            <li>Try <a href="https://remix.ethereum.org/">Remix - Ethereum IDE</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

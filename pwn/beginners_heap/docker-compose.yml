@@ -1,0 +1,13 @@
+version: '3'
+services:
+  bheap:
+    build:
+      context: .
+    working_dir: /home/pwn
+    container_name: bheap
+    ulimits:
+      nproc: 65535
+      core: 0
+    ports:
+      - "9002:9002"
+    entrypoint: /etc/init.sh

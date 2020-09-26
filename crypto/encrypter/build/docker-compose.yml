@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  challenge:
+    build: ./
+    restart: always
+    ports:
+      - "80:80"
+

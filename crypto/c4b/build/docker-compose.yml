@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - 80:8000
+    env_file: .env
+  redis:
+    image: redis:6.0-alpine
+  #ganache:
+    #  image: trufflesuite/ganache-cli:v6.9.1
+    #  command: ["--account=0x${C4B_PRIVKEY},10000000000000000000", "--account=0x${GANACHE_TESTACCOUNT},10000000000000000000"]
+    #  env_file: .env
+    #  ports:
+    #    - 8545:8545

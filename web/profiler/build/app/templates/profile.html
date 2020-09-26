@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4" id="name"></p>
+            <p class="subtitle is-6" id="uid"></p>
+          </div>
+        </div>
+        <div class="content" id="profile"></div>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="field">
+      <label class="label">Profile</label>
+      <div class="control has-icons-left">
+        <input class="input" type="text" id="profile-input" placeholder="Hello!" maxlength="1000">
+        <span class="icon is-small is-left">
+          <i class="fas fa-file-signature"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Token</label>
+      <div class="control has-icons-left">
+        <input class="input" type="text" id="token-input">
+        <span class="icon is-small is-left">
+          <i class="fas fa-credit-card"></i>
+        </span>
+      </div>
+    </div>
+    <br>
+    <button class="button is-dark is-fullwidth" id="update-button">Update</button>
+    <hr>
+    <a href="/flag" class="button is-link is-fullwidth">Get FLAG</a>
+    <hr>
+    <form action="/logout" method="POST">
+      <input type="submit" class="button is-danger is-fullwidth" value="Logout"></input>
+    </form>
+  </div>
+</div>
+
+<script src="static/js/profile.js"></script>
+{% endblock %}

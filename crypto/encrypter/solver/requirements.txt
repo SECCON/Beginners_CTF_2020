@@ -1,0 +1,2 @@
+requests
+padding-oracle==0.1.6

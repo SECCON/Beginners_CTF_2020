@@ -1,0 +1,4 @@
+node_modules
+.env
+.tern-port
+storage/logs/nginx/*.log

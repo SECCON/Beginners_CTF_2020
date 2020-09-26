@@ -1,0 +1,10 @@
+version: '3'
+services:
+  readme:
+    build:
+      context: .
+    working_dir: /home/ctf/server
+    container_name: readme
+    restart: always
+    ports:
+      - "9712:9712"
